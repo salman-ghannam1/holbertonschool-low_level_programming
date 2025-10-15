@@ -4,8 +4,8 @@
  * this is main function
  */
 
-int main()
+int main(void)
 {
-    print_alphabet_x10();
+    _islower(_putchar('a'));
     return 0;
 }
