@@ -1,11 +1,17 @@
 #include "main.h"
 
 /**
- * this is main function
+ * main - check the _islower function
+ *
+ * Return: Always 0.
  */
-
 int main(void)
 {
-    _islower(_putchar('a'));
-    return 0;
+	int r;
+
+	r = _islower('a');
+	_putchar(r + '0'); /* يطبع 1 لأن a حرف صغير */
+	_putchar('\n');
+
+	return (0);
 }
