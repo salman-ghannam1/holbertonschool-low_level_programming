@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * main - check the _isalpha function
+ * main - check the print_sign function
  *
  * Return: Always 0.
  */
@@ -9,12 +9,22 @@ int main(void)
 {
 	int r;
 
-	r = _isalpha('a');
-	_putchar(r + '0'); /* يطبع 1 لأن 'a' حرف */
-	r = _isalpha('Z');
-	_putchar(r + '0'); /* يطبع 1 لأن 'Z' حرف */
-	r = _isalpha('1');
-	_putchar(r + '0'); /* يطبع 0 لأن '1' ليس حرف */
+	r = print_sign(98);
+	_putchar(',');
+	_putchar(' ');
+	_putchar(r + '0');
+	_putchar('\n');
+
+	r = print_sign(0);
+	_putchar(',');
+	_putchar(' ');
+	_putchar(r + '0');
+	_putchar('\n');
+
+	r = print_sign(-1);
+	_putchar(',');
+	_putchar(' ');
+	_putchar(r + '0');
 	_putchar('\n');
 
 	return (0);
