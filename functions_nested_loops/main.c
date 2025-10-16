@@ -1,16 +1,15 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
- * main - check the add function
+ * main - check the print_to_98 function
  *
  * Return: Always 0.
  */
 int main(void)
 {
-	int n;
-
-	n = add(89, 9);
-	printf("%d\n", n);
+	print_to_98(0);
+	print_to_98(111);
+	print_to_98(81);
+	print_to_98(-10);
 	return (0);
 }
