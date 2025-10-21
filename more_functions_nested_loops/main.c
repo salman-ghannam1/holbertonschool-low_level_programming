@@ -3,7 +3,7 @@
 /**
  * main - tests the print_numbers function
  *
- * Return: 0
+ * Return: 0 on success
  */
 int main(void)
 {
