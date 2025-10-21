@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * main - tests the print_numbers function
+ * main - check the code
  *
- * Return: 0 on success
+ * Return: Always 0.
  */
 int main(void)
 {
-	print_numbers();
+	void print_numbers();
 	return (0);
 }
