@@ -1,17 +1,12 @@
-#include <stdio.h>
 #include "main.h"
 
 /**
- * main - tests the mul function
+ * main - tests print_numbers function
  *
- * Return: 0 on success
+ * Return: 0
  */
 int main(void)
 {
-	int result;
-
-	result = mul(3, 5);
-	printf("%d\n", result);
-
+	print_numbers();
 	return (0);
 }
