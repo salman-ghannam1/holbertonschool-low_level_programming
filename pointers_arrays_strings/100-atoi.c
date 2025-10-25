@@ -13,26 +13,29 @@ int _atoi(char *s)
 	int result = 0;
 	int found = 0;
 
-	/* امشي على النص حرف حرف */
+	/* move through the string character by character */
 	while (s[i] != '\0')
 	{
-		/* لو لقيت علامة سالب أو موجب قبل الرقم */
+		/* if a sign is found before the number */
 		if (s[i] == '-')
+		{
 			sign *= -1;
+		}
 		else if (s[i] == '+')
-			; /* نتجاهلها */
-
-		/* لو الحرف رقم */
+		{
+			/* ignore it */
+		}
+		/* if the character is a digit */
 		else if (s[i] >= '0' && s[i] <= '9')
 		{
 			found = 1;
-			result = result * 10 + (s[i] - '0');
+			result = (result * 10) + (s[i] - '0');
 		}
-
-		/* لو بدأنا نقرأ رقم ثم طلع حرف غير رقمي → نوقف */
+		/* if we already started reading a number and found a non-digit */
 		else if (found)
+		{
 			break;
-
+		}
 		i++;
 	}
 
