@@ -1,41 +1,34 @@
 #include "main.h"
 
 /**
- * _strncpy - copies a string like strncpy
- * @dest: destination buffer
- * @src: source string
- * @n: maximum number of bytes to copy
- *
- * Return: pointer to dest
- */
+  * _strncpy - Copy a string
+  * @dest: The destination value
+  * @src: The source value
+  * @n: The copy limit
+  *
+  * Return: char value
+  */
 char *_strncpy(char *dest, char *src, int n)
 {
-	int slen = 0;
-	int i = 0;
+	int a = 0, b = 0;
 
-	if (n <= 0)
-		return (dest);
-
-	/* احسب طول src */
-	while (src[slen] != '\0')
-		slen++;
-
-	if (slen < n)
+	while (src[b])
 	{
-		/* انسخ كل src */
-		for (i = 0; i < slen; i++)
-			dest[i] = src[i];
-
-		/* صفّر الباقي حتى n */
-		for (; i < n; i++)
-			dest[i] = '\0';
+		b++;
 	}
-	else
+
+	while (a < n && src[a])
 	{
-		/* src أطول أو تساوي n: انسخ بالضبط n بايت، بدون إنهاء */
-		for (i = 0; i < n; i++)
-			dest[i] = src[i];
+		dest[a] = src[a];
+		a++;
+	}
+
+	while (a < n)
+	{
+		dest[a] = '\0';
+		a++;
 	}
 
 	return (dest);
 }
+
