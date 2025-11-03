@@ -9,7 +9,7 @@
  */
 int main(int argc, char *argv[])
 {
-	(void)argv; /* لتجنّب تحذير unused parameter */
 	printf("%d\n", argc);
+	(void)argv; /* لتجنّب تحذير unused parameter */
 	return (0);
 }
