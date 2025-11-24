@@ -8,13 +8,13 @@
  */
 size_t list_len(const list_t *h)
 {
-    size_t Count = 0;
+	size_t count = 0;
 
-    while (h != NULL)
-    {
-        Count++;
-        h = h->next;
-    }
+	while (h != NULL)
+	{
+		count++;
+		h = h->next;
+	}
 
-    return (Count);
+	return (count);
 }
