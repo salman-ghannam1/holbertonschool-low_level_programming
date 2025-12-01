@@ -12,7 +12,8 @@
  */
 void error_read(const char *file)
 {
-	dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file);
+	dprintf(STDERR_FILENO,
+		"Error: Can't read from file %s\n", file);
 	exit(98);
 }
 
@@ -22,8 +23,20 @@ void error_read(const char *file)
  */
 void error_write(const char *file)
 {
-	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file);
+	dprintf(STDERR_FILENO,
+		"Error: Can't write to %s\n", file);
 	exit(99);
+}
+
+/**
+ * error_close - prints close error and exits
+ * @fd: file descriptor value
+ */
+void error_close(int fd)
+{
+	dprintf(STDERR_FILENO,
+		"Error: Can't close fd %d\n", fd);
+	exit(100);
 }
 
 /**
@@ -31,7 +44,7 @@ void error_write(const char *file)
  * @argc: argument count
  * @argv: argument vector
  *
- * Return: 0 on success, otherwise exits with specific code
+ * Return: 0 on success
  */
 int main(int argc, char *argv[])
 {
@@ -41,7 +54,8 @@ int main(int argc, char *argv[])
 
 	if (argc != 3)
 	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		dprintf(STDERR_FILENO,
+			"Usage: cp file_from file_to\n");
 		exit(97);
 	}
 
@@ -49,7 +63,8 @@ int main(int argc, char *argv[])
 	if (fd_from == -1)
 		error_read(argv[1]);
 
-	fd_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	fd_to = open(argv[2],
+		O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (fd_to == -1)
 	{
 		close(fd_from);
@@ -75,16 +90,10 @@ int main(int argc, char *argv[])
 	}
 
 	if (close(fd_from) == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_from);
-		exit(100);
-	}
+		error_close(fd_from);
 
 	if (close(fd_to) == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_to);
-		exit(100);
-	}
+		error_close(fd_to);
 
 	return (0);
 }
