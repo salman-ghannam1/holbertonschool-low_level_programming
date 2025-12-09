@@ -4,15 +4,16 @@
 #include "hash_tables.h"
 
 /**
- * main - check the code for
+ * main - Entry point for testing the hash table creation
  *
- * Return: Always EXIT_SUCCESS.
+ * Return: EXIT_SUCCESS on success
  */
 int main(void)
 {
-    hash_table_t *ht;
+	hash_table_t *ht;
 
-    ht = hash_table_create(1024);
-    printf("%p\n", (void *)ht);
-    return (EXIT_SUCCESS);
+	ht = hash_table_create(1024);
+	printf("%p\n", (void *)ht);
+
+	return (EXIT_SUCCESS);
 }
